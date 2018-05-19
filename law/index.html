@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+	<link rel = "prefetch" href = "lixuke.woff">
 	<meta name="viewport" content="user-scalable=no" />
 	<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0"/>
         <meta charset="UTF-8">
@@ -8,7 +9,7 @@
 		<style>
 		 @font-face {
 		font-family: 'lixuke';
-		src:url('lixuke.ttf') format('truetype');
+		src:url('lixuke.woff') format('woff');
 		}
 		 #name::-webkit-input-placeholder{
             color:white;
@@ -251,7 +252,7 @@ function btClick(){
 	hid.style.display = "none";
 	
 	username = name.value;
-	temp1 = Math.floor(Math.random()*str.length);
+	temp1 = Math.floor(Math.random()*(str.length-0.1));
 	c.style.backgroundImage = "url("+(temp1+1)+'.jpg'+")";
 	temp2 = str[temp1].length;
 	
