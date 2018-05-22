@@ -1,6 +1,9 @@
 body{
 	text-align:center;
 }
+table tr:nth-child(odd) td{
+    background-color: lightgrey;
+}
 select{
 	width:300px;
 }
