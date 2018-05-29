@@ -18,11 +18,11 @@
 
 <body>
     <!-- include header here -->
-
+	<?php include 'header.inc.php'; ?>
     <!-- Page Content -->
     <main class="container">
         <div class="row">
-    
+		<?php include 'left.inc.php'; ?>
         <!-- include left here -->          
     
             <div class="col-md-10">
