@@ -1,0 +1,19 @@
+html, body, div, span
+{
+margin: 0;
+ padding: 0;
+ border: 0;
+ font-size: 100%;
+ vertical-align: baseline;
+ }
+li{
+	 list-style-type : none;
+}
+ body
+{width:100%;}
+fieldset {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  border: none;
+}

@@ -1,0 +1,138 @@
+
+#input-search {
+	position:absolute;
+	z-index:250;
+	right:370px;
+	top:150px;
+    background-image: url("images/searchicon.png");
+    background-position: 10px 12px;
+    background-repeat: no-repeat;
+    width: 300px;
+    font-size: 16px;
+    padding: 12px 20px 12px 40px;
+    border: 1px solid #ddd;
+    margin-bottom: 12px; 
+}
+#bt-search{
+	position:absolute;
+	right:320px;
+	top:150px;
+	z-index:250;
+   
+    width: 50px;
+	
+	color:white;
+	background-color:black;
+    font-size: 18px;
+	font-style:bold;
+    padding: 9px 0px 9px 0px;
+    border: 1px solid #FFFFFF;
+}
+div.header{
+	height:250px;
+	background-size:100%;
+	background-color:black;
+}
+#register{
+	position:absolute;
+	z-index:500;
+	visibility:hidden;
+}
+/*
+div.nav-dec::before{
+		position:absolute;
+	top:0px;
+	left:0px;
+	margin:auto;
+	width:2000px;
+	height:30px;
+		background-size:100%;
+		background-image:url("images/back/nav-back.jpg");
+}*/
+div .nav-dec .signature img{
+	position:absolute;
+	left:300px;
+	width:45px;
+	height:45px;
+}
+div .nav-dec .signature p{
+	position:absolute;
+	left:345px;
+	font-size:20px;
+	font-weight:bold;
+	top:-10px;
+	color:white;
+	
+}
+div.logo a{
+	
+	position:absolute;
+	top:60px;
+	left:400px;
+	width:200px;
+	height:200px;
+	background-image:url("images/LOGO.png");
+	background-size:100%;
+	display:block;
+}
+div.nav-dec{
+	position:absolute;
+	top:0px;
+	left:0px;
+	margin:auto;
+	width:100%;
+	height:45px;
+
+	background:hsla(0,0%,100%,0.4);
+}
+.nav li{
+	float:left;
+	/*margin:10px 10px 10px 10px;*/
+}.nav  {
+	width:740px;
+	position:absolute;
+	right:200px;
+	top:0px;
+}
+.nav li a:link,.nav li a:visited{
+	font-size:20px;
+	display:block;
+	width :100px;
+	height:25px;
+	font-weight:bold;
+	color:#FFFFFF;
+	text-align:center;
+	padding:10px;
+	text-decoration:none;
+	
+}
+.nav li a:hover,.nav li a:active{
+	background:hsla(0,0%,100%,0.2);
+
+}
+.selected{
+	display:block;
+	width :100%;
+	border-top:4px solid orange;
+	float:left;
+}
+.hidden{
+	display :none;
+	color:white;
+}
+.nav-cart:hover .hidden{
+	padding:15px;
+	display:block;
+	background:white;
+	position:absolute;
+	width:90px;
+	z-index:700;
+}
+.nav-cart:hover .hidden a{
+	width:75px;
+	height:75px;
+	margin:0;
+	margin-bottom:10px;
+	padding:0;
+	display:block-inline;
+}

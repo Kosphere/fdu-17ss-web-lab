@@ -1,0 +1,95 @@
+.wrapper{
+	margin:4em 15%;
+	padding:1em;
+}
+.display{
+
+	width:100%;
+	height:20em;
+	border-radius: 10px; 
+	background-image:url("images/works/large/138010.jpg");
+	background-size:100%;
+	background-position:center;
+	display:block;
+}
+
+.display2{
+	width:100%;
+}
+
+.show{
+	margin:2em 0;
+	height:200px;
+	border-radius: 10px; 
+	border:1px solid black;
+	background-color:#ffffcc;
+	font-size:none;
+	
+}
+.pic{
+
+}
+.show a{
+	margin:10px 40px 10px 10px;
+	width:180px;
+	height:180px;
+	border-radius: 20px;
+	background-image:url("images/works/small/141010.jpg");
+	background-size:cover;
+	background-position:center;
+	display:block;
+	float:left;
+}
+.show a img{
+	width:100%;
+	height:100%;
+	border-radius:20px;
+}
+.login-bt:link {
+	font-size:15px;
+	float:right;
+	display:block-inline;
+	height:20px;
+	color:black;
+	font-weight:bold;
+	text-align:center;
+	padding:10px 20px;
+	text-decoration:none;
+	border:1px solid #E6E6FA;
+	border-radius: 5px;
+	background:white;
+}
+.login-bt:hover{
+		background:#dddddd;
+}
+.description{
+	height:200px;
+}
+.description h2{
+	padding-top:20px;
+}
+.search-tit{
+	font-size:20px;
+	margin-left:-30px;
+}
+.sort-form{
+	text-align:right;
+}
+.page-ul{
+	text-align:center;
+}
+.page-ul li{
+	display:inline-block;
+}
+.page-ul li a{
+	padding:5px 10px;
+	font-size:20px;
+	text-decoration:none;
+	background-color:#dddddd;
+}
+.page-ul li a:hover{
+	background-color:#F0F8FF;
+}
+.page-ul li .active{
+	background-color:white;
+}
