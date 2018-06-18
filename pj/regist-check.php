@@ -14,7 +14,7 @@
 	if ($error != null) {
 		$output = "<p>Unable to connect to database<p>" . $error;
 	exit($output);}
-	$sql = "SELECT UserName FROM CustomerLogon WHERE UserName = '".$username."'";
+	$sql = "SELECT UserName,customerID FROM CustomerLogon WHERE UserName = '".$username."'";
 	if($result = mysqli_query($connection, $sql)){
 		if($row = $result->fetch_assoc()){
 			echo 0;
@@ -22,7 +22,7 @@
 		}
 		else{
 			session_start(); 
-			$_SESSION['id'] = $username;
+			$_SESSION['id'] = $row['COUNT(*)']+5;
 			$sql = "SELECT COUNT(*) FROM CustomerLogon";
 			$result = mysqli_query($connection, $sql);
 			$row = $result->fetch_assoc();

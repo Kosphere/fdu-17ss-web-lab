@@ -17,63 +17,87 @@
 		<div>
 			<?php
 				include_once('header.php');
+				$host = "localhost";
+				$database = "art";
+				$user = "root"; 
+				$pass = "";
+				$connection = mysqli_connect($host,$user,$pass,$database);
+				$error = mysqli_connect_error(); 
+				if ($error != null) {
+					$output = "<p>Unable to connect to database<p>" . $error;
+				exit($output);}
+				if(!isset($_GET['by']))
+					$_GET['by'] = '';
+				if(!isset($_GET['title']))
+					$_GET['title'] = '';
+				if(!isset($_GET['des']))
+					$_GET['des'] = '';
+				if(!isset($_GET['sort']))
+					$_GET['sort'] = 'view';
+				$sql = "SELECT count(*) from artworks where title like '%".$_GET['title']."%' and artist like '%".$_GET['by']."%' and description like '%".$_GET['des']."%'";
+				
+
 			?>
 			<div class = "wrapper">
-				<p class = "search-tit">搜索结果:</p>
-				<form class = "sort-form">
+				<form class = "sort-form" method = "get" action ="search.php">
 				<fieldset>
-					<input type="radio" name="sort" value="1"/>价格
-					<input type="radio" name="sort" value="2" checked />热度
-					<input type="radio" name="sort" value="3"/>标题
+					标题：<input type = "text" name = "title"/>
+					作者：<input type = "text" name = "by"/>
+					描述：<input type = "text" name = "des"/>
+					<input type="radio" name="sort" value="price"/>价格
+					<input type="radio" name="sort" value="view" checked />热度
+					<button type = 'submit'>搜索</button>
 				</fieldset>
 				</form>
+				<p class = "search-tit">搜索结果:</p>
 				<div class = "display2">
-				<div class = "show">
-						<a href = "item-info.html"></a>
-						<div class = "description">
-							<h2>Good job</h2>
-							<h3>By Liu-dashuai</h3>
-							very good work!
-							<a class = "login-bt" href = "item-info.html">
-								learn more
-							</a>
-						</div>
-					</div>
-					<div class = "show">
-						<a href = "item-info.html"><img src = "images/works/square-medium/001020.jpg"/></a>
-						<div class = "description">
-							<h2>Good job again</h2>
-							<h3>By Liu-dali</h3>
-							very very good work!
-							<a class = "login-bt" href = "item-info.html">
-								learn more
-							</a>
-						</div>
-					</div>
-					<div class = "show">
-						<a href = "item-info.html"><img src = "images/works/square-medium/001050.jpg"/></a>
-						<div class = "description">
-							<h2>Best Masterpiece</h2>
-							<h3>By Liu-daxian</h3>
-							very very very good work!
-							<a class = "login-bt" href = "item-info.html">
-								learn more
-							</a>
-						</div>
-					</div>
-					<div class = "page-bts">
-					<ul class="page-ul">
-						<li><a href="#">«</a></li>
-						<li><a class="active" href="#">1</a></li>
-						<li><a href="#">2</a></li>
-						<li><a href="#">3</a></li>
-						<li><a href="#">4</a></li>
-						<li><a href="#">5</a></li>
-						<li><a href="#">6</a></li>
-						<li><a href="#">7</a></li>
-						<li><a href="#">»</a></li>
+				<?PHP
+								
+				$result = mysqli_query($connection, $sql);
+				$row = $result->fetch_assoc();
+				
+				if($row['count(*)']!=0){
+					$rownumber = floor(($row['count(*)']-1)/20)+1;
+					$sql = "SELECT * from artworks where title like '%".$_GET['title']."%' and artist like '%".$_GET['by']."%' and description like '%".$_GET['des']."%' order by ".$_GET['sort'];
+					echo '<script>let sql = "'.$sql.'";let rownumber = '.$rownumber.';let a;</script>';
+					$sql .= " limit 0,20";
+					
+					$result = mysqli_query($connection, $sql);
+					while($row = $result->fetch_assoc()){
+						if(strlen($row['description'])>600){
+							$row['description'] = substr($row['description'],0,600).'......';
+						}
+							echo '<div class = "show">
+									<a href = "item-info.php?id='.$row['artworkID'].'" style=\'background-image:url("img/'.$row['imageFileName'].'")\'></a>
+									<div class = "description">
+										<h4>'.$row['title'].'</h4>
+										<h5>By '.$row['artist'].'</h5>
+										<h5>$'.$row['price'].'</h5>
+										<span class = "tiny">'.$row['description'].'</span>
+										<a class = "login-bt" href = "item-info.php?id='.$row['artworkID'].'">
+											learn more
+										</a>
+									</div>
+								</div>';
+							
+						}
+						echo '<div class = "page-bts">
+					<ul class="page-ul"><li><a class="active" href="#">1</a></li>
+						';
+					for($i=2;$i<=$rownumber;$i++){
+						echo '<li><a href="#" onclick = "changepage(this.innerHTML);">'.$i.'</a></li>';
+					}
+					echo '
 					</ul>
-					</div>
+					</div>';
+				}
+				?>
+				
+				
+				
+					
+
+
 					
 						
 					
@@ -83,6 +107,8 @@
 			<div class = "footer">
 					&copy Produced by 17302010003
 				</div>	
+				
+<script type="text/javascript" src="search.js"></script>
 			</div>
 		</div>
 

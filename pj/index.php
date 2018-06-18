@@ -31,7 +31,7 @@
 				if ($error != null) {
 					$output = "<p>Unable to connect to database<p>" . $error;
 				exit($output);}
-				$sql = "SELECT artworkid,imageFileName,title,description FROM artworks order by view desc LIMIT 3";
+				$sql = "SELECT artworkid,imageFileName,title,description FROM artworks where orderid is null order by view desc LIMIT 3";
 				
 			?>
 			<div class = "wrapper">
@@ -47,7 +47,7 @@
 					if($result = mysqli_query($connection, $sql)){
 						$row = $result->fetch_assoc();
 						echo '<div class="carousel-item active">
-							<a href = "item-info.html?id='.$row['artworkid'].'">
+							<a href = "item-info.php?id='.$row['artworkid'].'">
 							<img class="d-block w-100" src="img/'.$row['imageFileName'].'
 							" alt="First slide">
 							<div class="carousel-caption d-none d-md-block">
@@ -59,7 +59,7 @@
 						';
 					while($row = $result->fetch_assoc()){
 						echo '<div class="carousel-item">
-							<a href = "item-info.html?id='.$row['artworkid'].'">
+							<a href = "item-info.php?id='.$row['artworkid'].'">
 							<img class="d-block w-100" src="img/'.$row['imageFileName'].'" 
 							alt="First slide">
 							<div class="carousel-caption d-none d-md-block">
@@ -89,16 +89,16 @@
 				
 				<div class = "display2">
 					<?php
-					$sql = "SELECT imageFileName,artworkid,artist,title,description FROM artworks order by view desc LIMIT 3";
+					$sql = "SELECT imageFileName,artworkID,artist,title,description FROM artworks where orderid is null order by view desc LIMIT 3";
 					if($result = mysqli_query($connection, $sql)){
 						while($row = $result->fetch_assoc()){
 							echo '<div class = "show">
-									<a href = "item-info.html?id='.$row['artworkid'].'" style=\'background-image:url("img/'.$row['imageFileName'].'")\'></a>
+									<a href = "item-info.php?id='.$row['artworkID'].'" style=\'background-image:url("img/'.$row['imageFileName'].'")\'></a>
 									<div class = "description">
 										<h4>'.$row['title'].'</h4>
 										<h5>By '.$row['artist'].'</h5>
 										<span class = "tiny">'.$row['description'].'</span>
-										<a class = "login-bt" href = "item-info.html?id='.$row['artworkid'].'">
+										<a class = "login-bt" href = "item-info.php?id='.$row['artworkID'].'">
 											learn more
 										</a>
 									</div>

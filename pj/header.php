@@ -22,7 +22,7 @@
 						<a href = "search.php">搜索</a>
 						</li>
 						<li class = "nav-cart">
-							<a href = "cart.php">购物车(2)</a>
+							<a href = "cart.php">购物车</a>
 							<div class = "hidden">
 							<a href = "item-info.php"><img src = "images/works/square-small/001020.jpg"/></a>
 							<a href = "item-info.php"><img src = "images/works/square-small/001050.jpg"/></a>
@@ -61,7 +61,7 @@
 					<div class = "search">
 					<form method = "get" action ="search.php">
 					<fieldset>
-						<input type="text" id="input-search" name = "input-search" placeholder=""/>
+						<input type="text" id="input-search" name = "title" placeholder=""/>
 						<button id = "bt-search" type = "submit">搜索
 						</button>
 						</fieldset>

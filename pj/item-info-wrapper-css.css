@@ -1,18 +1,26 @@
 .wrapper{
-	height:640px;
+	height:840px;
+	height:840px;
 	margin:4em 15%;
 	padding:1em;
 	display:block;
+}
+.pdes{
+	width:45%;
 }
 .information a{
 	text-decoration:none;
 }
 .details img{
 	float:left;
+	width:350px;
 }
 .details #description{
+	position:absolute;
+
 	float:left;
-	margin-left:50px;
+	left:700px;
+	top:400px;
 }
 .price{
 	color:red;
