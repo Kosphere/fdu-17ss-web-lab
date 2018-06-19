@@ -23,13 +23,13 @@
 						</li>
 						<li class = "nav-cart">
 							<a href = "cart.php">购物车</a>
-							<div class = "hidden">
+							<!--<div class = "hidden">
 							<a href = "item-info.php"><img src = "images/works/square-small/001020.jpg"/></a>
 							<a href = "item-info.php"><img src = "images/works/square-small/001050.jpg"/></a>
-							</div>
+							</div>-->
 						</li>
 						<li class = "nav-item-info">
-						<a href = "item-info.php">详情</a>
+						<a href = "upload.php">上传</a>
 						</li>
 						<?php
 

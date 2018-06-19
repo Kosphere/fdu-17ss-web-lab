@@ -34,10 +34,9 @@ cursor:pointer;
 }
 .information2{
 	float:right;
-	width:65%
+	width:70%
 }
 .user-info{
-	height:180px;
 	padding:20px;
 	margin-bottom:25px;
 	background-color:#fff5ee;
@@ -46,6 +45,7 @@ cursor:pointer;
 	
 }
 table{
+	text-align:center;
 	margin-top:30px;
 			border:1px solid black;
 }
@@ -53,10 +53,3 @@ td{
 	height:3em;
 		border:1px solid black;
 }
-.td1{
-	width:33%;
-}
-.td2{
-	width:25%;
-}
-.td3{width:15%;}

@@ -87,9 +87,10 @@
 					for($i=2;$i<=$rownumber;$i++){
 						echo '<li><a href="#" onclick = "changepage(this.innerHTML);">'.$i.'</a></li>';
 					}
-					echo '
+					echo '<input type = "number" id="pg" min="1" placeholder = "1/'.$rownumber.'" max = "'.$rownumber.'"/><button onclick = "let num = $(\'#pg\').val();if(num>'.$rownumber.'){num='.$rownumber.'}if(num<1)num=1;changepage(num);">跳转</button>
 					</ul>
 					</div>';
+					
 				}
 				?>
 				

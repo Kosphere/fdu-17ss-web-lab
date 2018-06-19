@@ -89,7 +89,7 @@
 				
 				<div class = "display2">
 					<?php
-					$sql = "SELECT imageFileName,artworkID,artist,title,description FROM artworks where orderid is null order by view desc LIMIT 3";
+					$sql = "SELECT imageFileName,artworkID,artist,title,description FROM artworks where orderid is null order by view asc LIMIT 3";
 					if($result = mysqli_query($connection, $sql)){
 						while($row = $result->fetch_assoc()){
 							echo '<div class = "show">

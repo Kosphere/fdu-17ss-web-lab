@@ -12,7 +12,23 @@
 	background-position:center;
 	display:block;
 }
-
+.login-bt:link {
+	font-size:15px;
+	float:right;
+	display:block-inline;
+	height:20px;
+	color:black;
+	font-weight:bold;
+	text-align:center;
+	padding:10px 20px;
+	text-decoration:none;
+	border:1px solid #E6E6FA;
+	border-radius: 5px;
+	background:white;
+}
+.login-bt:hover{
+		background:#dddddd;
+}
 .display2{
 
 	width:100%;
