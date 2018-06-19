@@ -53,7 +53,35 @@ $host = "localhost";
 				</div>
 				<div class = "information2">
 					<div class = "user-info">
-					我上传的艺术品：
+					我上传的艺术品：<table>
+					<tr>
+					<td class = "td1">名称</td><td class = "td2">上传时间
+					</td><td class = "td2">修改</td><td class = "td3">删除</td>
+					</tr>
+					<?php
+						$sql = "select * from artworks where ownerID = ".$_SESSION['id'];
+						$result = mysqli_query($connection, $sql);
+						while($row = $result->fetch_assoc()){
+							echo'<tr>
+					<td class = "td1"><a href = "item-info.php?id='.$row['artworkID'].'">'.$row['title'].'</td><td class = "td2">'.$row['timeReleased'].'
+					</td>';
+					
+					if($row['orderID']==null){
+					echo'<td class = "td2"><a href = "upload.php?
+					title='.$row['title'].'&artist='.$row['artist'].'
+					&description='.$row['description'].'&year='.$row['yearOfWork'].'
+					&genre='.$row['genre'].'&width='.$row['width'].'&height='.$row['height'].'
+					&price='.$row['price'].'&refresh='.$row['artworkID'].'&image='.$row['imageFileName'].'
+					">修改</a></td><td class = "td3"><a href="#"onclick="if(confirm(\'确认删除吗？\')){mydelete('.$row['artworkID'].');}">删除</a></td>
+					';
+					}
+					else
+					{echo'<td class = "td2">修改</td><td class = "td3">删除</td>
+					';}
+					echo '</tr>';
+						}
+					?>
+					</table>
 					</div>
 					<div class = "user-info">
 					我购买的艺术品：
@@ -78,6 +106,7 @@ $host = "localhost";
 							$row3 = $result3->fetch_assoc();
 							echo '<a href = "item-info.php?id='.$row3['artworkID'].'">'.$row3['title'].'</a><br/>';
 						}
+
 					echo'</td><td class = "td2">'.$row['DateStarted'].'</td><td class = "td3">$'.$row['price'].'</td>
 					</tr>';
 						}
@@ -146,6 +175,16 @@ $host = "localhost";
 				
 
 			},
-			failure:function(){console.log('failed!');}});}</script>
+			failure:function(){console.log('failed!');}});}
+			function mydelete(artworkID){
+				$.ajax({type:'POST',url:'artdelete.php',data:{'artworkID':artworkID},
+			async:true,success:function(msg){
+				console.log(msg);
+				location.reload();
+				
+
+			},
+			error:function(err){console.log(err);}});}
+			</script>
 	</body>
 <html>

@@ -43,7 +43,7 @@ if(!isset($_SESSION['id']))
 							</p>
 							<p>
 								<label>简介：</label>
-								<input type = "text" name = "description"id = "confirm-password"onblur="judge3();<?php if(isset($_GET['description']))echo 'value = "'.$_GET['description'].'"'?>"/>
+								<input type = "text" name = "description"id = "confirm-password"onblur="judge3();"<?php if(isset($_GET['description']))echo 'value = "'.$_GET['description'].'"'?>/>
 								<span id = "n3"></span>
 							</p>
 							<p>
@@ -80,7 +80,7 @@ if(!isset($_SESSION['id']))
 							<span id = 'notice'></span>
 								<input type = "text"class='hide'name = "refresh"id = "refresh" <?php if(isset($_GET['refresh']))echo 'value = "'.$_GET['refresh'].'"';else echo 'value = "0"';?>/>
 								
-							<div id = "showpic"><img id="preview"src = '<?php if(isset($_GET['image']))echo 'value = "'.$_GET['image'].'"'?>'/></div>
+							<div id = "showpic"><img id="preview"<?php if(isset($_GET['image']))echo 'src = "img/'.$_GET['image'].'"';?>/></div>
 							<p id = "bts">
 							<a class = "login-bt" onclick  = "mySubmit();"href = "#">上传</a>
 							</p>

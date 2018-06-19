@@ -12,7 +12,7 @@
 	$width=$_POST['width'];
 	$height=$_POST['height'];
 	$price=$_POST['price'];
-	if($_POST['image']!=''){
+	if(isset($_FILES["image"])){
 	if ($_FILES["image"]["error"] > 0)
 	{
 	echo "Error: " . $_FILES["image"]["error"] . "<br />";
